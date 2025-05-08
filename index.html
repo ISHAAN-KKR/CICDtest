@@ -1,9 +1,60 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>CI/CD Demo App</title>
-  </head>
-  <body>
-    <h1>Hello, CI/CD World!</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CI/CD Demo App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    #time {
+      font-size: 1.5em;
+      margin-top: 10px;
+      color: #16a085;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      background-color: #2980b9;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello, CI/CD World!</h1>
+  <div id="time">Loading current time...</div>
+  <button onclick="updateTime()">Refresh Time</button>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById('time').textContent = `Current Time: ${timeString}`;
+    }
+
+    // Auto-update time every second
+    setInterval(updateTime, 1000);
+
+    // Initial time load
+    updateTime();
+  </script>
+</body>
 </html>
